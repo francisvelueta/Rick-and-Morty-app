@@ -17,7 +17,7 @@ let statusLife;
 status !== "Alive" ? statusLife = "1": statusLife = "0"
   return (
 
-    <Col  lg={4} xs ={12}>
+    <Col  lg={4} xs ={12} style ={{ fontFamily: 'Source Sans Pro, sans-serif' }}>
     <Card className="mt-3 mb-3">
       <CardImg style={{filter: "grayscale("+statusLife+")"}} top width="100%" src={image} alt="Card image character" />
           <CardBody >

@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
     <BrowserRouter basename = { process.env.PUBLIC_URL } >
-      <div>
+      <div >
       <NavApp />
       <Route exact path = '/' component = { Characters } />
       <Route exact path = '/character/:id' component = { CharacterDetail } />

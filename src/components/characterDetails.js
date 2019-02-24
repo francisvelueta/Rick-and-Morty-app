@@ -9,7 +9,8 @@ import { Container,
    CardTitle,
    CardSubtitle,
    CardText,
-   Button
+   Button,
+   Spinner
   } from 'reactstrap';
 import axios from 'axios';
 
@@ -45,8 +46,7 @@ const CharacterDetail = (props) => {
 
   }
 
-
-  useEffect( () => {
+useEffect( () => {
     getCharacters(props.match.params.id);
 
 
@@ -56,7 +56,7 @@ character.status !== "Alive" ? statusLife = "1": statusLife = "0"
 
   return (
 
-    <Container>
+    <Container style ={{ fontFamily: 'Source Sans Pro, sans-serif' }}>
     <Row>
       <Col lg={5} xs ={12}>
     {character && character.origin ? <Card >
@@ -72,7 +72,7 @@ character.status !== "Alive" ? statusLife = "1": statusLife = "0"
             <Button color="info" onClick={()=> getEpisode(character.episode[0])}>First Episode</Button>
             <CardText className="form-text text-muted">ID: {character.id}</CardText>
           </CardBody>
-        </Card>: <p>Loading...</p>}
+        </Card>: <Spinner color="info" />}
         </Col>
         <Col lg={5} xs ={12}>
         {toggle && firstEpisode !== null ?

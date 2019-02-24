@@ -12,7 +12,7 @@ const [toggle, setToggle]= useState(
     <div>
       <Navbar color="info" dark expand="sm" className ="mb-5">
         <Container>
-      <NavbarBrand className="white" href ="/">Rick and Morty App </NavbarBrand>
+      <NavbarBrand  style ={{ fontFamily: 'Hanalei Fill, cursive' }} className="white" href ="/">Rick and Morty App </NavbarBrand>
       <NavbarToggler onClick = {()=> setToggle({isOpen: !toggle.isOpen})} />
       <Collapse isOpen = {toggle.isOpen} navbar >
       <Nav className= "ml-auto" navbar >

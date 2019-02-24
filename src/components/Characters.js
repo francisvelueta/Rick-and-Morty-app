@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Input } from 'reactstrap';
+import { Container, Row, Input, Spinner  } from 'reactstrap';
 import axios from 'axios';
 
 import CharacterSummary from './CharacterSummary';
@@ -35,7 +35,7 @@ useEffect(()=> {
 },[])
   return (
 
-    <Container>
+    <Container style ={{ fontFamily: 'Source Sans Pro, sans-serif' }}>
       <form>
         <Input
           type="search"
@@ -52,7 +52,7 @@ useEffect(()=> {
           ></Input>
       </form>
     <Row>
-    { people ? people.map(p => (<CharacterSummary key ={p.id} id= {p.id} name = {p.name} image = {p.image} spiece = {p.species} status={p.status}/>)): <p>Loading...</p>}
+    { people ? people.map(p => (<CharacterSummary key ={p.id} id= {p.id} name = {p.name} image = {p.image} spiece = {p.species} status={p.status}/>)):<Spinner color="info" />}
     </Row>
     </Container>
     );
