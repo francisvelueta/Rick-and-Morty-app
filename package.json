@@ -6,7 +6,7 @@
   "homepage": "http://francisvelueta.github.io/Rick-and-Morty-app/",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production",
+    "build": "./node_modules/.bin/webpack --mode production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
