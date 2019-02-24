@@ -7,13 +7,14 @@ import { Card,
   CardSubtitle,
   Button,
 Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
 const CharacterSummary = ({id, name, image, spiece, status}) => {
 let statusLife;
 
-status !== "Alive" ? statusLife = "1": statusLife = "0" 
+status !== "Alive" ? statusLife = "1": statusLife = "0"
   return (
 
     <Col  lg={4} xs ={12}>
@@ -24,7 +25,7 @@ status !== "Alive" ? statusLife = "1": statusLife = "0"
             <CardSubtitle>Status: {status}</CardSubtitle>
             <CardText>Spiece: {spiece}</CardText>
             <CardText className="form-text text-muted">ID: {id}</CardText>
-            <Button color="info">More info</Button>
+             <Link to = { '/character/'+id} ><Button color="info" >More info</Button></Link>
           </CardBody>
         </Card>
         </Col>
