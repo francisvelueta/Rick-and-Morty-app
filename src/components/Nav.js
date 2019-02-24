@@ -22,12 +22,7 @@ const [toggle, setToggle]= useState(
         </NavLink>
         </NavItem>
         <NavItem>
-        <NavLink href ="/favorites">
-          Episodes
-        </NavLink>
-        </NavItem>
-        <NavItem>
-        <NavLink href ="https://github.com/francisvelueta/starwars-api">
+        <NavLink href ="https://github.com/francisvelueta/Rick-and-Morty-app">
           <i className="fab fa-github-alt"></i>
         </NavLink>
         </NavItem>

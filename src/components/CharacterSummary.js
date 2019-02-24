@@ -18,7 +18,7 @@ status !== "Alive" ? statusLife = "1": statusLife = "0"
   return (
 
     <Col  lg={4} xs ={12}>
-    <Card >
+    <Card className="mt-3 mb-3">
       <CardImg style={{filter: "grayscale("+statusLife+")"}} top width="100%" src={image} alt="Card image character" />
           <CardBody >
             <CardTitle>Name: {name}</CardTitle>

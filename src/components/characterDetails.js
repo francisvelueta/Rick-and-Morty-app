@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Container,
    Row,
+   Col,
    Card,
    CardImg,
    CardBody,
+   CardHeader,
    CardTitle,
    CardSubtitle,
    CardText,
@@ -12,10 +14,8 @@ import { Container,
 import axios from 'axios';
 
 
-
-
 const CharacterDetail = (props) => {
-
+  let statusLife;
   const [character, setCharacter ] = useState([]);
   const [upload, setUpload ] = useState(true);
   const [toggle, setToggle]= useState(
@@ -41,7 +41,6 @@ const CharacterDetail = (props) => {
       setEpisode(item);
       setUpload(false);
       setToggle({isOpen: !toggle.isOpen})
-      console.log(firstEpisode);
     })
 
   }
@@ -53,13 +52,15 @@ const CharacterDetail = (props) => {
 
   },[upload])
 
+character.status !== "Alive" ? statusLife = "1": statusLife = "0"
 
   return (
 
     <Container>
     <Row>
+      <Col lg={5} xs ={12}>
     {character && character.origin ? <Card >
-      <CardImg top width="100%" src={character.image} alt="Card image character" />
+      <CardImg style={{filter: "grayscale("+statusLife+")"}} top width="100%" src={character.image} alt="Card image character" />
           <CardBody >
             <CardTitle>Name: {character.name}</CardTitle>
             <CardSubtitle>Status: {character.status}</CardSubtitle>
@@ -72,17 +73,18 @@ const CharacterDetail = (props) => {
             <CardText className="form-text text-muted">ID: {character.id}</CardText>
           </CardBody>
         </Card>: <p>Loading...</p>}
-
+        </Col>
+        <Col lg={5} xs ={12}>
         {toggle && firstEpisode !== null ?
-          <Card>
+          <Card >
+            <CardHeader className="text-white" style={{ backgroundColor: '#17a2b8' }} >First Episode</CardHeader>
             <CardBody>
-              <CardTitle>First Episode
-              </CardTitle>
               <CardSubtitle>Name: {firstEpisode.name}</CardSubtitle>
               <CardText>Episode: {firstEpisode.episode}</CardText>
               <CardText>Air Date: {firstEpisode.air_date}</CardText>
               <CardText className="form-text text-muted">ID: {firstEpisode.id}</CardText>
             </CardBody></Card>: null }
+          </Col>
 
     </Row>
     </Container>

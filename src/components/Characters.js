@@ -4,16 +4,10 @@ import axios from 'axios';
 
 import CharacterSummary from './CharacterSummary';
 
-
-
-
 const Characters = () => {
   const [people, setPeople ] = useState(null);
   const [term, setTerm ] = useState('');
   const [loading, setLoading ] = useState(true);
-
-
-
 
 const getCharacters = () => {
 return axios.get('https://rickandmortyapi.com/api/character/?page=1')
@@ -36,8 +30,6 @@ const makeSearch = string => {
     }
 }
 
-
-
 useEffect(()=> {
   getCharacters();
 },[])
@@ -59,7 +51,6 @@ useEffect(()=> {
 
           ></Input>
       </form>
-
     <Row>
     { people ? people.map(p => (<CharacterSummary key ={p.id} id= {p.id} name = {p.name} image = {p.image} spiece = {p.species} status={p.status}/>)): <p>Loading...</p>}
     </Row>
